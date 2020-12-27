@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度（仿）</title>
+
+    <style>
+        html {
+            color: #000;
+            overflow-y: scroll;
+            overflow: -moz-scrollbars;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .footer {
+            position: fixed;
+            width: 100%;
+            min-width: 1250px;
+            margin: 0;
+            left: 0;
+            height: 40px;
+            bottom: 0;
+            /* border: 1px solid red; */
+            font-size: 12px;
+            font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+            text-decoration: none;
+            line-height: 40px;
+            background-color: #fbfbfb;
+            /* 清除浮动 */
+            overflow: hidden;
+            text-align: left;
+            color: rgb(145, 149, 163);
+        }
+        
+        .header {
+            /* 父代开启相对定位，子代开启绝对定位，可以让子代相对于父代定位 */
+            position: relative;
+            width: 100%;
+            height: 60px;
+            border: 1px solid red;
+            background: #fff;
+            min-width: 1250px;
+            margin: 0;
+            left: 0;
+            top: 0;
+        }
+        
+        #header-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 60px;
+            border: 1px solid blue;
+            padding-left: 24px;
+        }
+        
+        #header-left .mnav {
+            margin-right: 31px;
+            margin-top: 19px;
+            display: inline-block;
+            position: relative;
+            color: #222;
+            font: 13px/23px Arial, sans-serif;
+            font-stretch: 100%;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        #header-left .more-mnav-btn {
+            padding-bottom: 19px;
+            margin-right: 31px;
+            margin-top: 19px;
+            display: inline-block;
+            position: relative;
+            color: #222;
+            font: 13px/23px Arial, sans-serif;
+            font-stretch: 100%;
+            font-weight: 400;
+            text-align: center;
+        }
+        
+        #header-left .more-mnav {
+            position: absolute;
+            top: 29px;
+            right: -12px;
+            width: 304px;
+            height: 223px;
+            background: #fff;
+            box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .15);
+            border-radius: 12px;
+            border: 1px solid red;
+            /* 多选框默认不显示 */
+            display: none;
+        }
+        
+        #header-left .more-mnav-btn:hover .more-mnav {
+            /* 当鼠标放上按钮时显示多选框 */
+            display: block;
+        }
+        
+        #header-left .mnav:hover {
+            color: blue;
+        }
+        /* 选择器这样写：:hover .class名 可以对其他元素进行控制（若写成a：hover则只能对a的hover样式起作用） */
+        
+        #header-left .more-mnav-btn:hover .more-mnav-a,
+        .more-mnav-content a:hover div {
+            color: blue;
+        }
+        
+        .more-mnav-content a {
+            width: 76px;
+            height: 70px;
+            float: left;
+        }
+        
+        .more-mnav-content a img {
+            width: 42px;
+            height: 42px;
+            margin: auto;
+            border: 1px solid rgba(0, 0, 0, .03);
+            border-radius: 12px;
+        }
+        
+        .more-mnav-content-top {
+            padding-top: 16px;
+        }
+        
+        .clearfix:after {
+            content: '\20';
+            display: block;
+            height: 0;
+            clear: both;
+        }
+        
+        #header-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 60px;
+            border: 1px solid green;
+            padding-left: 24px;
+            font-size: 12px;
+            font-family: "PingFang SC", Arial, "Microsoft YaHei", sans-serif;
+        }
+        
+        .space {
+            margin-right: 16px;
+        }
+        
+        .space-start {
+            margin-left: 24px;
+        }
+        
+        .space-end {
+            margin-right: 24px;
+        }
+        
+        #footer-left {
+            float: left;
+            /* border: 1px solid blue; */
+            /* width: 553.388px; */
+        }
+        
+        #footer-right {
+            /* 具备float属性的块级元素可以在一行显示 */
+            float: right;
+            color: #bbb;
+            /* width: 538.875px; */
+            /* border: 1px solid green; */
+        }
+        
+        .c-color-gray2 {
+            font-size: 12px;
+            text-decoration: none;
+            ;
+            color: rgb(145, 149, 163);
+        }
+        
+        .s-bottom-layer-right {
+            text-decoration: none;
+            color: #bbb;
+        }
+        
+        .c-color-gray2:hover {
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div id="header-left">
+            <a href="#" class="mnav">新闻</a>
+            <a href="#" class="mnav">hao123</a>
+            <a href="#" class="mnav">地图</a>
+            <a href="#" class="mnav">视频</a>
+            <a href="#" class="mnav">贴吧</a>
+            <a href="#" class="mnav">学术</a>
+            <div class="more-mnav-btn">
+                <a href="#" class="more-mnav-a">更多</a>
+                <div class="more-mnav">
+                    <div class="more-mnav-content
+                    more-mnav-content-top clearfix">
+                        <a href="#">
+                            <img src="img/baiduyun@2x-e0be79e69e.png" alt="">
+                            <div>网盘</div>
+                        </a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                        <a href="#"></a>
+                    </div>
+                    <div class="more-mnav-content"></div>
+                    <div class="more-mnav-content"></div>
+                </div>
+            </div>
+        </div>
+        <div id="header-right">
+            <span class="space">xxx天气xx</span>
+            <span class="space">设置</span>
+            <span class="space space-end">xx登陆账户xxx</span>
+        </div>
+    </div>
+    <div class="content"></div>
+    <div class="footer">
+        <div id="footer-left">
+            <span class="space-start space"><a href="#" class="c-color-gray2" id="c-color-gray2-start" >设为首页</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">关于百度</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">About Baidu</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">百度营销</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">使用百度前必读</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">意见反馈</a></span>
+            <span class="space"><a href="#" class="c-color-gray2">帮助中心</a></span>
+        </div>
+        <div id="footer-right">
+            <span class="space">©2020 Baidu</span>
+            <span class="space">(京)-经营性-2017-0020</span>
+            <span class="space"><a href="#" class="s-bottom-layer-right">京公网安备11000002000001号</a></span>
+            <span class="space space-end">京ICP证030173号</span>
+        </div>
+    </div>
+</body>
+
+</html>
